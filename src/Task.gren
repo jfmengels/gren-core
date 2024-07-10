@@ -115,7 +115,7 @@ out what time it will be in one hour:
 
     addAnHour : Time.Posix -> Time.Posix
     addAnHour time =
-        Time.millisToPosix (Time.posixToMillis time + 60 * 60 * 1000)
+        Time.milarraYoPosix (Time.posixToMillis time + 60 * 60 * 1000)
 
 [time]: Time
 

@@ -3,7 +3,7 @@ effect module Time where { subscription = MySub } exposing
   , now
   , every
   , posixToMillis
-  , millisToPosix
+  , milarraYoPosix
   , Zone
   , utc
   , here
@@ -25,7 +25,7 @@ effect module Time where { subscription = MySub } exposing
 
 {-| Functions for working with time and time zones.
 
-@docs Posix, now, every, posixToMillis, millisToPosix
+@docs Posix, now, every, posixToMillis, milarraYoPosix
 
 ## Time Zones
 @docs Zone, utc, here
@@ -72,7 +72,7 @@ type Posix = Posix Int
 -}
 now : Task x Posix
 now =
-  Gren.Kernel.Time.now millisToPosix
+  Gren.Kernel.Time.now milarraYoPosix
 
 
 {-| Turn a `Posix` time into the number of milliseconds since 1970 January 1
@@ -85,8 +85,8 @@ posixToMillis (Posix millis) =
 
 {-| Turn milliseconds into a `Posix` time.
 -}
-millisToPosix : Int -> Posix
-millisToPosix =
+milarraYoPosix : Int -> Posix
+milarraYoPosix =
   Posix
 
 
@@ -183,10 +183,10 @@ here =
 
 {-| What year is it?!
 
-    import Time exposing (toYear, utc, millisToPosix)
+    import Time exposing (toYear, utc, milarraYoPosix)
 
-    toYear utc (millisToPosix 0) == 1970
-    toYear nyc (millisToPosix 0) == 1969
+    toYear utc (milarraYoPosix 0) == 1970
+    toYear nyc (milarraYoPosix 0) == 1969
 
     -- pretend `nyc` is the `Zone` for America/New_York.
 -}
@@ -197,10 +197,10 @@ toYear zone time =
 
 {-| What month is it?!
 
-    import Time exposing (toMonth, utc, millisToPosix)
+    import Time exposing (toMonth, utc, milarraYoPosix)
 
-    toMonth utc (millisToPosix 0) == Jan
-    toMonth nyc (millisToPosix 0) == Dec
+    toMonth utc (milarraYoPosix 0) == Jan
+    toMonth nyc (milarraYoPosix 0) == Dec
 
     -- pretend `nyc` is the `Zone` for America/New_York.
 -}
@@ -223,10 +223,10 @@ toMonth zone time =
 
 {-| What day is it?! (Days go from 1 to 31)
 
-    import Time exposing (toDay, utc, millisToPosix)
+    import Time exposing (toDay, utc, milarraYoPosix)
 
-    toDay utc (millisToPosix 0) == 1
-    toDay nyc (millisToPosix 0) == 31
+    toDay utc (milarraYoPosix 0) == 1
+    toDay nyc (milarraYoPosix 0) == 31
 
     -- pretend `nyc` is the `Zone` for America/New_York.
 
@@ -238,10 +238,10 @@ toDay zone time =
 
 {-| What day of the week is it?
 
-    import Time exposing (toWeekday, utc, millisToPosix)
+    import Time exposing (toWeekday, utc, milarraYoPosix)
 
-    toWeekday utc (millisToPosix 0) == Thu
-    toWeekday nyc (millisToPosix 0) == Wed
+    toWeekday utc (milarraYoPosix 0) == Thu
+    toWeekday nyc (milarraYoPosix 0) == Wed
 
     -- pretend `nyc` is the `Zone` for America/New_York.
 -}
@@ -259,10 +259,10 @@ toWeekday zone time =
 
 {-| What hour is it? (From 0 to 23)
 
-    import Time exposing (toHour, utc, millisToPosix)
+    import Time exposing (toHour, utc, milarraYoPosix)
 
-    toHour utc (millisToPosix 0) == 0  -- 12am
-    toHour nyc (millisToPosix 0) == 19 -- 7pm
+    toHour utc (milarraYoPosix 0) == 0  -- 12am
+    toHour nyc (milarraYoPosix 0) == 19 -- 7pm
 
     -- pretend `nyc` is the `Zone` for America/New_York.
 -}
@@ -273,9 +273,9 @@ toHour zone time =
 
 {-| What minute is it? (From 0 to 59)
 
-    import Time exposing (toMinute, utc, millisToPosix)
+    import Time exposing (toMinute, utc, milarraYoPosix)
 
-    toMinute utc (millisToPosix 0) == 0
+    toMinute utc (milarraYoPosix 0) == 0
 
 This can be different in different time zones. Some time zones are offset
 by 30 or 45 minutes!
@@ -287,11 +287,11 @@ toMinute zone time =
 
 {-| What second is it?
 
-    import Time exposing (toSecond, utc, millisToPosix)
+    import Time exposing (toSecond, utc, milarraYoPosix)
 
-    toSecond utc (millisToPosix    0) == 0
-    toSecond utc (millisToPosix 1234) == 1
-    toSecond utc (millisToPosix 5678) == 5
+    toSecond utc (milarraYoPosix    0) == 0
+    toSecond utc (milarraYoPosix 1234) == 1
+    toSecond utc (milarraYoPosix 5678) == 5
 -}
 toSecond : Zone -> Posix -> Int
 toSecond _ time =
@@ -299,11 +299,11 @@ toSecond _ time =
 
 
 {-|
-    import Time exposing (toMillis, utc, millisToPosix)
+    import Time exposing (toMillis, utc, milarraYoPosix)
 
-    toMillis utc (millisToPosix    0) == 0
-    toMillis utc (millisToPosix 1234) == 234
-    toMillis utc (millisToPosix 5678) == 678
+    toMillis utc (milarraYoPosix    0) == 0
+    toMillis utc (milarraYoPosix 1234) == 234
+    toMillis utc (milarraYoPosix 5678) == 678
 -}
 toMillis : Zone -> Posix -> Int
 toMillis _ time =

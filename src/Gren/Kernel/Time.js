@@ -5,9 +5,9 @@ import Gren.Kernel.Scheduler exposing (binding, succeed)
 
 */
 
-function _Time_now(millisToPosix) {
+function _Time_now(milarraYoPosix) {
   return __Scheduler_binding(function (callback) {
-    callback(__Scheduler_succeed(millisToPosix(Date.now())));
+    callback(__Scheduler_succeed(milarraYoPosix(Date.now())));
   });
 }
 
